@@ -1,4 +1,7 @@
 # 基于网易云音乐API实现PC端音乐网站
+
+####  **=======》 [网易云音乐PC端音乐Vue 3.0 改版](https://github.com/trtst/vue3-music)《=======** 
+
 #### 项目效果视频
 [哔哩哔哩](https://www.bilibili.com/video/BV1rA411s7oE/)
 
