@@ -1,0 +1,45 @@
+@color-theme: #ff641e;
+
+.audio-icon {
+    display: none;
+    width: 20px;
+    height: 18px;
+    margin: 16px 2px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    overflow: hidden;
+
+    .column {
+        width: 2px;
+        height: 100%;
+        margin-left: 2px;
+        background-color: @color-theme;
+        -webkit-animation: play .9s linear infinite alternate;
+        animation: play .9s linear infinite alternate
+    }
+}
+
+@-webkit-keyframes play {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    to {
+        -webkit-transform: translateY(75%);
+        transform: translateY(75%)
+    }
+}
+
+@keyframes play {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    to {
+        -webkit-transform: translateY(75%);
+        transform: translateY(75%)
+    }
+}

@@ -1,0 +1,192 @@
+.video-skin {
+    // 重置，默认控制条显示
+    .vjs-control-bar {
+        display: flex;
+        height: 60px;
+        padding: 20px 0 10px;
+        background: rgba(255,255,255,0);
+        background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.3) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(100%, rgba(0,0,0,0.3)));
+        background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.3) 100%);
+        background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.3) 100%);
+        background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.3) 100%);
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(0,0,0,0.3) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 );
+    }
+
+    .vjs-icon-placeholder, .vjs-icon-placeholder::before {
+        font-family: "iconfont" !important;
+    }
+
+    /* 初始化视频播放按钮占位符重置UI */
+    .vjs-big-play-button {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        top: 50%;
+        left: 50%;
+        margin: -50px 0 0 -40px;
+        font-size: 80px;
+        border: 0 !important;
+        background-color: transparent !important;
+    }
+    /* 初始化视频播放按钮占位符 */
+    .vjs-big-play-button {
+        .vjs-icon-placeholder:before {
+            content: "\e737";
+        }
+    }
+    /* 控制条上的播放按钮 */
+    .vjs-play-control {
+        .vjs-icon-placeholder:before {
+            content: "\e6a4";
+        }
+    }
+    /* 暂停按钮 */
+    .vjs-play-control.vjs-playing {
+        .vjs-icon-placeholder:before {
+            content: "\e6a5";
+        }
+    }
+    /* 重播按钮 */
+    .vjs-play-control.vjs-ended {
+        .vjs-icon-placeholder:before {
+            content: "\e61c";
+        }
+    }
+    /* 音量按钮 */
+    .vjs-mute-control {
+        .vjs-icon-placeholder:before {
+            content: "\e8b9" !important;
+        }
+    }
+    /* 禁音按钮 */
+    .vjs-mute-control.vjs-vol-0, .vjs-mute-control.vjs-vol-0 {
+        .vjs-icon-placeholder:before {
+            content: "\e8b8" !important;
+        }
+    }
+    /* 全屏按钮 */
+    .vjs-fullscreen-control {
+        .vjs-icon-placeholder:before {
+            content: "\e8e8";
+        }
+    }
+    /* 退出全屏按钮 */
+    &.vjs-fullscreen .vjs-fullscreen-control {
+        .vjs-icon-placeholder:before {
+            content: "\e60f";
+        }
+    }
+    /* 进度条 */
+    .vjs-slider {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    /* 已加载的进度条 */
+    .vjs-load-progress {
+        div {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+    }
+    /* 当前播放的进度条 */
+    .vjs-play-progress {
+        background-color: @color-theme;
+
+        &::before {
+            box-sizing: content-box;
+            display: inline-block;
+            content: '';
+            position: absolute;
+            right: -6px;
+            width: 4px;
+            height: 4px;
+            border: 4px solid #ff641e;
+            top: -5px;
+            background: #fff;
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            border-radius: 50%;
+            cursor: -webkit-grab;
+            cursor: grab;
+        }
+    }
+    /* 进度条上的小*/
+    .vjs-progress-control {
+        &:hover {
+            .vjs-play-progress::before {
+                top: -4px;
+            }
+        }
+    }
+    /* 视频控制，当前时长与总时长 */
+    .vjs-time-control {
+        display: inline-block;
+        min-width: auto;
+        padding: 0 2px;
+    }
+
+    /* 音量条 */
+    .vjs-volume-vertical {
+        background: transparent;
+    }
+    .vjs-volume-level:before {
+        top: -5px;
+        left: -4px;
+    }
+    /* 视频播放速度控制 */
+    .vjs-playback-rate-value {
+        font-size: 12px;
+        line-height: 30px;
+    }
+    .vjs-menu {
+        width: 50px;
+        left: -5px;
+
+        li {
+            line-height: 24px;
+
+            &.vjs-selected {
+                color: @color-theme;
+                background-color: #fff!important;
+            }
+        }
+
+        .vjs-menu-content {
+            color: #efefef;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    }
+    /* 清晰度按钮 */
+    .vjs-quality {
+        .vjs-menu-button, .vjs-quality-value {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .vjs-quality-value {
+            font-size: 12px;
+            line-height: 30px;
+        }
+
+        &.vjs-hover {
+            .vjs-menu {
+                display: block;
+            }
+        }
+    }
+
+    // 暂停播放时，视频中间显示播放按钮
+    &.vjs-ended {
+        .vjs-big-play-button {
+            display: block;
+
+            .vjs-icon-placeholder:before {
+                content: "\e61c";
+            }
+        }
+    }
+}
