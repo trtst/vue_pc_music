@@ -5,7 +5,7 @@ import { Message } from 'element-ui'
 const instance = axios.create({
     time: 1000 * 60,
     withCredentials: true,
-    baseURL: 'https://vue-music-trtst-com.vercel.app/'
+    baseURL: 'https://api.trtst.com/'
 })
 instance.defaults.withCredentials = true
 instance.defaults.validateStatus = function () {
